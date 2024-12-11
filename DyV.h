@@ -1,21 +1,46 @@
 #include <vector>
 template <typename T>
 int BusquedaBinaria(T x, std::vector<T>& v, int ini, int fin){
-	T num = x;
-	int com = ini;
+	T valor = x;
+	int start = ini;
 	int end = fin;
 
 	if (com > end){
 		return -1;
 	}
 
-	int medio= (com+end)/2;
-	if (v[medio]==num){
+	int medio= (start+end)/2;
+	if (v[medio]==valor){
 		return medio;
-	}else if(v[medio] > num){
-		return BusquedaBinaria(num,v,com,medio-1);
+	}else if(v[medio] > valor){
+		return BusquedaBinaria(valor,v,start,medio-1);
 	}else{
-		return BusquedaBinaria(num,v,medio+1,end);
+		return BusquedaBinaria(valor,v,medio+1,end);
+	}
+}
+
+void QuickSort(std::vector<T>& v, int ini, int fin){
+	
+	int start = ini;
+	int end = fin;
+
+	if(start<end){
+		int pivot = Partition(v,start,end);
+		QuickSort(v, start, pivot - 1);
+		QuickSort(v,pivot + 1, fin);
+	}
+}
+
+int Partition(v, int ini, int fin){
+	int start = ini;
+	int end = fin;
+
+	T x = v[end]
+	int i = start;
+	for (int j=start; j<end-1){
+		if (v[j] <= x){
+			
+		}
 	}
 }
 
